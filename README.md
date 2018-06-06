@@ -54,6 +54,7 @@
 >> 2：如果 action 不存在或不能调用, 则客户端收到 Method $name not found <br />
 >> 3：如果 controller 不存在或不能实例化, 则客户端收到 Controller $controller not found <br />
 
+> controller/tcp/控制器中的 $this->data 为客户端发过来的完整数据
 > controller/tcp/控制器的方法中调用 $this->response($data) 将数据发送至客户端
 
 #### Websocket 服务
@@ -83,6 +84,7 @@
 >> 2：如果 action 不存在或不能调用, 则客户端收到 Method $name not found <br />
 >> 3：如果 controller 不存在或不能实例化, 则客户端收到 Controller $controller not found <br />
 
+> controller/websocket/控制器中的 $this->data 为客户端发过来的完整数据
 > controller/websocket/控制器的方法中调用 $this->response($data) 将数据发送至客户端
 
 #### HTTP 服务
