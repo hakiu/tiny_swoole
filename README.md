@@ -1,6 +1,6 @@
 # tiny_swoole
 
-#### 极简Swoole 
+#### 极简Swoole, 未经生产检验, 请谨慎使用!
 > TCP, WEBSOCKET, HTTP <br />
 > Timer, Task 简易封装 <br />
 > MC 模式处理请求 <br />
