@@ -170,7 +170,7 @@ after 方法
     $args['data']['type'] = Server::$type;
     Task::add($args);
 ```
-myTask 方法则这样接收参数, 进行业务处理即可
+myTask 方法则这样接收参数, $args 仅包括 $args['data'] 中的数据, 不包括 controller 与 action
 ```
 	public function myTask($args){
         echo __METHOD__."\n";
