@@ -55,4 +55,4 @@
 >>> 如果 action 不存在或不能调用, 则客户端收到 Method $name not found <br />
 >>> 如果 controller 不存在或不能实例化, 则客户端收到 Controller '.$controller.' not found <br />
 
-> 
+> 调用 $this->response($data) 将数据发送至客户端
