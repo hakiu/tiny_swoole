@@ -4,7 +4,7 @@
 > TCP, WEBSOCKET, HTTP <br />
 > Timer, Task 简易封装 <br />
 > MC 模式处理请求 <br />
-> shell 脚本启动, 停止, 停止服务
+> shell 脚本启动, 停止, 重启服务
 
 #### 环境要求
 > PHP >= 7.0 <br />
