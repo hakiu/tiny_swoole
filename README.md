@@ -3,7 +3,7 @@
 #### 极简Swoole 
 > TCP, WEB_SOCKET, HTTP <br />
 > Timer, Task 简易封装 <br />
-> MVC 模式处理请求 <br />
+> MC 模式处理请求 <br />
 > shell 脚本启动, 停止, 停止服务
 
 #### 环境要求
@@ -28,3 +28,7 @@
 > common 为公共配置部分, 影响整体 <br />
 > tcp, http, websocket 为独立部分, 暂不支持混和监听, 也就是当前版本只能启动三个中的一个服务 <br />
 > mysql, redis <br />
+
+### 使用
+> 采用 MC 模式, 所有的请求均转至当前服务的 Controller
+> Controller 中加载 Model 操作数据库
