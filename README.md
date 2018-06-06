@@ -110,6 +110,7 @@
 >> 2：如果 action 不存在或不能调用, 则客户端收到 Method $name not found <br />
 >> 3：如果 controller 不存在或不能实例化, 则客户端收到 Controller $controller not found <br />
 
+> $this->get($key), $ths->getPost($key) 获取 GET / POST 的参数
 > controller/http/控制器的方法中调用 $this->response->write($data) 将数据发送至客户端和 $this->response->end($data) 结束发送;
 
 #### MySQL
