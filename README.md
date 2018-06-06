@@ -50,9 +50,6 @@
 	$data['key']        = 'foo'; // 其他参数
 	$cli->send(json_encode($d)."\r\n");
 ```
->> 1：如果 action 为空, 则由 index() 处理 <br />
->> 2：如果 action 不存在或不能调用, 则客户端收到 Method $name not found <br />
->> 3：如果 controller 不存在或不能实例化, 则客户端收到 Controller $controller not found <br />
 
 > controller/tcp/控制器中的 $this->data 为客户端发过来的完整数据 <br />
 > controller/tcp/控制器的方法中调用 $this->response($data) 将数据发送至客户端
@@ -80,9 +77,6 @@
     // 组成成 JSON 发过去
     ws.send(JSON.stringify(arr));
 ```
->> 1：如果 action 为空, 则由 index() 处理 <br />
->> 2：如果 action 不存在或不能调用, 则客户端收到 Method $name not found <br />
->> 3：如果 controller 不存在或不能实例化, 则客户端收到 Controller $controller not found <br />
 
 > controller/websocket/控制器中的 $this->data 为客户端发过来的完整数据<br />
 > controller/websocket/控制器的方法中调用 $this->response($data) 将数据发送至客户端
@@ -106,12 +100,13 @@
 	http://$ip:$port/?controller=user&action=redis&key=foo
 ```
 
->> 1：如果 action 为空, 则由 index() 处理 <br />
->> 2：如果 action 不存在或不能调用, 则客户端收到 Method $name not found <br />
->> 3：如果 controller 不存在或不能实例化, 则客户端收到 Controller $controller not found <br />
-
-> $this->get($key), $ths->getPost($key) 获取 GET / POST 的参数 <br />
+> 使用 $this->get($key), $this->getPost($key) 获取 GET / POST 的参数 <br />
 > controller/http/控制器的方法中调用 $this->response->write($data) 将数据发送至客户端和 $this->response->end($data) 结束发送;
+
+### 控制器与方法的异常处理
+> 1：如果 action 为空, 则由 index() 处理 <br />
+> 2：如果 action 不存在或不能调用, 则客户端收到 Method $name not found <br />
+> 3：如果 controller 不存在或不能实例化, 则客户端收到 Controller $controller not found <br />
 
 #### MySQL
 > 通过模型访问数据库<br />
