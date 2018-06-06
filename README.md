@@ -14,11 +14,11 @@
 > pdo_mysql <br />
 
 #### 安装
-> Git clone 至任一目录 <br />
+> Git clone 至任一目录
 
 #### CLI 命令
-启动: sh shell/socket.sh start <br />
-状态: sh shell/socket.sh status <br />
-停止: sh shell/socket.sh stop <br />
-重启: sh shell/socket.sh restart <br />
-Reload: sh shell/socket.sh reload <br />
+> 启动: sh shell/socket.sh start <br />
+> 状态: sh shell/socket.sh status <br />
+> 停止: sh shell/socket.sh stop <br />
+> 重启: sh shell/socket.sh restart <br />
+> Reload: sh shell/socket.sh reload <br />
