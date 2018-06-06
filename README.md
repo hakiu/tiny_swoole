@@ -55,7 +55,7 @@
 >> 2：如果 action 不存在或不能调用, 则客户端收到 Method $name not found <br />
 >> 3：如果 controller 不存在或不能实例化, 则客户端收到 Controller '.$controller.' not found <br />
 
-> 调用 $this->response($data) 将数据发送至客户端
+> controller/tcp/user/news 中调用 $this->response($data) 将数据发送至客户端
 
 #### Web_socket 服务
 > config.php 将 websocket 的 enable 设置为 true <br />
@@ -84,4 +84,4 @@
 >> 2：如果 action 不存在或不能调用, 则客户端收到 Method $name not found <br />
 >> 3：如果 controller 不存在或不能实例化, 则客户端收到 Controller '.$controller.' not found <br />
 
-> 调用 $this->response($data) 将数据发送至客户端
+> controller/websocket/user/news 中调用 $this->response($data) 将数据发送至客户端
