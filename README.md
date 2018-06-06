@@ -22,3 +22,9 @@
 > 停止: sh shell/socket.sh stop <br />
 > 重启: sh shell/socket.sh restart <br />
 > Reload: sh shell/socket.sh reload <br />
+
+#### 配置
+> 配置文件是 conf/config.php <br />
+> common 为公共配置部分, 影响整体 <br />
+> tcp, http, websocket 为独立部分, 暂不支持混和监听, 也就是当前版本只能启动三个中的一个服务 <br />
+> mysql, redis <br />
