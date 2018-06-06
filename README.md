@@ -119,7 +119,7 @@
 > 执行复杂的 SQL: Query($sql)<br />
 > beginTransaction(), Commit(), Rollback() 操作事务<br />
 ```
-$field = ['id', 'username'];
+	$field = ['id', 'username'];
     $order = ['id' => 'DESC'];
     $users = $this->m_user->Field($field)->Order($order)->Select();
 ```
