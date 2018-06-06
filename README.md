@@ -29,11 +29,11 @@
 > tcp, http, websocket 为独立部分, 暂不支持混和监听, 也就是当前版本只能启动三个中的一个服务 <br />
 > mysql, redis 配置 <br />
 
-### 使用
+#### 使用
 > 采用 MC 模式, 所有的请求均转至当前服务的 Controller <br />
 > Controller 中加载 Model 操作数据库 <br />
 
-### TCP 使用
+#### TCP 使用
 > config.php 将 tcp 的 enable 设置为 true <br />
 > sh shell/socket.sh restart 重启服务 <br />
 > ps -ef | grep Tiny 将看到 <br />
