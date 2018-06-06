@@ -109,3 +109,12 @@
 >> 3：如果 controller 不存在或不能实例化, 则客户端收到 Controller $controller not found <br />
 
 > controller/http/控制器的方法中调用 $this->response->write($data) 将数据发送至客户端和 $this->response->end($data) 结束发送;
+
+#### MySQL
+> 通过模型访问数据库
+> 控制器中使用 $this->m_user = Helper::load('User'); 加载 User 模型
+> 使用 Filed(), Where(), Order(), Limt() 构建 SQL
+> SelectOne(), Select(), UpdateOne(), Update(), DeleteOne(), Delete()
+> 根据ID 查询: SelectByID, SelectFieldByID()
+> 执行复杂的 SQL: Query($sql)
+> beginTransaction(), Commit(), Rollback() 操作事务
