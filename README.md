@@ -118,3 +118,13 @@
 > 根据ID 查询: SelectByID(), SelectFieldByID()<br />
 > 执行复杂的 SQL: Query($sql)<br />
 > beginTransaction(), Commit(), Rollback() 操作事务<br />
+```
+	$field = ['id', 'username'];
+    $order = ['id' => 'DESC'];
+    $users = $this->m_user->Field($field)->Order($order)->Select();
+```
+
+#### Redis
+> Pool::getInstance('redis')->get($key) <br />
+> Pool::getInstance('redis')->del($key) <br />
+> Pool::getInstance('redis')->set($key, $val) <br />
