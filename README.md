@@ -33,7 +33,7 @@
 > 采用 MC 模式, 所有的请求均转至当前服务的 Controller <br />
 > Controller 中加载 Model 操作数据库 <br />
 
-#### TCP 使用
+#### TCP 服务
 > config.php 将 tcp 的 enable 设置为 true <br />
 > sh shell/socket.sh restart 重启服务 <br />
 > ps -ef | grep Tiny 将看到 <br />
@@ -41,3 +41,12 @@
 >> Tiny_Swoole_tcp_manager: 为 manager 进程<br />
 >> Tiny_Swoole_tcp_task: N 个 task 进程 <br />
 >> Tiny_Swoole_tcp_worker: N 个 worker 进程 <br />
+> controller/tcp 目录下有一个 Index.php, 负责处理 onConnect, onClose 事件
+> 为了将控制权由onReceive 转至对应的控制器, 客户端发送的数据需要指定处理该请求的 controller 及 action, 比如要指定由 User 控制器下的 news Action来处理, 则发送的数据中应该是这样的格式:
+```
+	$data = [];
+	$data['controller'] = 'user';
+	$data['action']     = 'news';
+	$data['key']        = 'foo';
+	$cli->send(json_encode($d)."\r\n");
+```
