@@ -158,3 +158,22 @@ after 方法
         $this->response('Execute '.__METHOD__.' in after timer');
     }
 ```
+
+#### Task
+> 控制器user中要将数据投递到 task 且由当前的 myTask 来处理业务逻辑
+```
+	// Task
+    $args = [];
+    $args['controller']   = 'user';
+    $args['action']       = 'myTask';
+    $args['data']['line'] = __LINE__;
+    $args['data']['type'] = Server::$type;
+    Task::add($args);
+```
+myTask 方法则这样接收参数, 进行业务处理即可
+```
+	public function myTask($args){
+        echo __METHOD__."\n";
+        pr($args);
+    }
+```
