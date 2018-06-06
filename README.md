@@ -36,8 +36,8 @@
 ### TCP 使用
 > config.php 将 tcp 的 enable 设置为 true <br />
 > sh shell/socket.sh restart 重启服务 <br />
-> ps -ef | grep Tiny 将看到进程名为 <br />
->> Tiny_Swoole_tcp_master <br />
->> Tiny_Swoole_tcp_manager <br />
->> Tiny_Swoole_tcp_task <br />
->> Tiny_Swoole_tcp_worker <br />
+> ps -ef | grep Tiny 将看到 <br />
+>> Tiny_Swoole_tcp_master: 为 master 进程  <br />
+>> Tiny_Swoole_tcp_manager: 为 manager 进程<br />
+>> Tiny_Swoole_tcp_task: N 个 task 进程 <br />
+>> Tiny_Swoole_tcp_worker: N 个 worker 进程 <br />
