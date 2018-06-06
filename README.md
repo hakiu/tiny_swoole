@@ -85,3 +85,28 @@
 >> 3：如果 controller 不存在或不能实例化, 则客户端收到 Controller $controller not found <br />
 
 > controller/websocket/user/news 中调用 $this->response($data) 将数据发送至客户端
+
+#### HTTP 服务
+> config.php 将 http 的 enable 设置为 true <br />
+> sh shell/socket.sh restart 重启服务 <br />
+> ps -ef | grep Tiny 将看到 <br />
+>> Tiny_Swoole_http_master: 为 master 进程  <br />
+>> Tiny_Swoole_http_manager: 为 manager 进程<br />
+>> Tiny_Swoole_http_task: N 个 task 进程 <br />
+>> Tiny_Swoole_http_worker: N 个 worker 进程 <br /><br />
+
+> controller/http 目录下有一个 Index.php, 其中的index()方法处理首页事件 <br />
+> 为了将控制权由 onRequest 转至对应的控制器, 客户端发送的数据需要指定处理该请求的 controller 及 action, 比如要指定由 User 控制器下的 news Action来处理, 则URL应该是这样的格式: 
+```
+	http://$ip:$port/?controller=user&action=news
+```
+> 带上key=foo参数
+```
+	http://$ip:$port/?controller=user&action=redis&key=foo
+```
+
+>> 1：如果 action 为空, 则由 index() 处理 <br />
+>> 2：如果 action 不存在或不能调用, 则客户端收到 Method $name not found <br />
+>> 3：如果 controller 不存在或不能实例化, 则客户端收到 Controller $controller not found <br />
+
+> controller/websocket/user/news 中调用 $this->response($data) 将数据发送至客户端
