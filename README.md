@@ -43,13 +43,42 @@
 >> Tiny_Swoole_tcp_worker: N 个 worker 进程 <br /><br />
 
 > controller/tcp 目录下有一个 Index.php, 负责处理 onConnect, onClose 事件
-> 为了将控制权由 onReceive 转至对应的控制器, 客户端发送的数据需要指定处理该请求的 controller 及 action, 比如要指定由 User 控制器下的 news Action来处理, 则发送的数据中应该是这样的 json 格式:
+> 为了将控制权由 onReceive 转至对应的控制器, 客户端发送的数据需要指定处理该请求的 controller 及 action, 比如要指定由 User 控制器下的 news Action来处理, 则发送的数据中应该是这样的 json 格式: 【参见 client/tcp_client.php】
 ```
 	$data = [];
 	$data['controller'] = 'user';
 	$data['action']     = 'news';
 	$data['key']        = 'foo'; // 其他参数
 	$cli->send(json_encode($d)."\r\n");
+```
+>> 1：如果 action 为空, 则由 index() 处理 <br />
+>> 2：如果 action 不存在或不能调用, 则客户端收到 Method $name not found <br />
+>> 3：如果 controller 不存在或不能实例化, 则客户端收到 Controller '.$controller.' not found <br />
+
+> 调用 $this->response($data) 将数据发送至客户端
+
+#### Web_socket 服务
+> config.php 将 websocket 的 enable 设置为 true <br />
+> sh shell/socket.sh restart 重启服务 <br />
+> ps -ef | grep Tiny 将看到 <br />
+>> Tiny_Swoole_web_socket_master: 为 master 进程  <br />
+>> Tiny_Swoole_web_socket_manager: 为 manager 进程<br />
+>> Tiny_Swoole_web_socket_task: N 个 task 进程 <br />
+>> Tiny_Swoole_web_socket_worker: N 个 worker 进程 <br /><br />
+
+> controller/websocket 目录下有一个 Index.php, 负责处理 onOpen, onClose 事件
+> 为了将控制权由 onMessage 转至对应的控制器, 客户端发送的数据需要指定处理该请求的 controller 及 action, 比如要指定由 User 控制器下的 news Action来处理, 则发送的数据中应该是这样的 json 格式: 【参见 client/websocket.html】
+```
+	var controller = $('#controller').val();
+    var action     = $('#action').val();
+    var key        = $('#key').val();
+
+    var arr = {};
+    arr.controller = controller;
+    arr.action     = action;
+    arr.key        = key;
+    // 组成成 JSON 发过去
+    ws.send(JSON.stringify(arr));
 ```
 >> 1：如果 action 为空, 则由 index() 处理 <br />
 >> 2：如果 action 不存在或不能调用, 则客户端收到 Method $name not found <br />
