@@ -37,9 +37,9 @@ class WebSocket {
 
     public function onWorkerStart(swoole_server $server, int $worker_id) {
         if ($server->taskworker) {
-            $process_name = APP_NAME.'_web_socket_task';
+            $process_name = APP_NAME.'_websocket_task';
         }else{
-            $process_name = APP_NAME.'_web_socket_worker';
+            $process_name = APP_NAME.'_websocket_worker';
         }
 
         swoole_set_process_name($process_name);
@@ -113,11 +113,11 @@ class WebSocket {
     }
 
     public function onManagerStart(swoole_server $server){
-        swoole_set_process_name(APP_NAME.'_web_socket_manager');
+        swoole_set_process_name(APP_NAME.'_websocket_manager');
     }
 
     public function start() {
-        swoole_set_process_name(APP_NAME.'_web_socket_master');
+        swoole_set_process_name(APP_NAME.'_websocket_master');
         $this->server->start();
     }
 }
