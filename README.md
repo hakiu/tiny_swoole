@@ -113,8 +113,8 @@
 #### MySQL
 > 通过模型访问数据库<br />
 > 控制器中使用 $this->m_user = Helper::load('User'); 加载 User 模型<br />
-> 使用 Filed(), Where(), Order(), Limt() 构建 SQL<br />
+> 使用链式操作 Filed($field)->Where($where)->Order($order)->Limit($limit) 构建 SQL<br />
 > SelectOne(), Select(), UpdateOne(), Update(), DeleteOne(), Delete()<br />
-> 根据ID 查询: SelectByID, SelectFieldByID()<br />
+> 根据ID 查询: SelectByID(), SelectFieldByID()<br />
 > 执行复杂的 SQL: Query($sql)<br />
 > beginTransaction(), Commit(), Rollback() 操作事务<br />
