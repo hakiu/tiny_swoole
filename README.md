@@ -43,7 +43,7 @@
 >> Tiny_Swoole_tcp_worker: N 个 worker 进程 <br /><br />
 
 > controller/tcp 目录下有一个 Index.php, 负责处理 onConnect, onClose 事件
-> 为了将控制权由onReceive 转至对应的控制器, 客户端发送的数据需要指定处理该请求的 controller 及 action, 比如要指定由 User 控制器下的 news Action来处理, 则发送的数据中应该是这样的 json 格式:
+> 为了将控制权由 onReceive 转至对应的控制器, 客户端发送的数据需要指定处理该请求的 controller 及 action, 比如要指定由 User 控制器下的 news Action来处理, 则发送的数据中应该是这样的 json 格式:
 ```
 	$data = [];
 	$data['controller'] = 'user';
