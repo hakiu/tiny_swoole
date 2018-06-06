@@ -64,6 +64,7 @@
 >> Tiny_Swoole_web_socket_manager: 为 manager 进程<br />
 >> Tiny_Swoole_web_socket_task: N 个 task 进程 <br />
 >> Tiny_Swoole_web_socket_worker: N 个 worker 进程 <br /><br />
+
 > controller/websocket 目录下有一个 Index.php, 负责处理 onOpen, onClose 事件 <br />
 > 为了将控制权由 onMessage 转至对应的控制器, 客户端发送的数据需要指定处理该请求的 controller 及 action, 比如要指定由 User 控制器下的 news Action来处理, 则发送的数据中应该是这样的 json 格式: 【参见 client/websocket.html】
 ```
@@ -92,6 +93,7 @@
 >> Tiny_Swoole_http_manager: 为 manager 进程<br />
 >> Tiny_Swoole_http_task: N 个 task 进程 <br />
 >> Tiny_Swoole_http_worker: N 个 worker 进程 <br /><br />
+
 > controller/http 目录下有一个 Index.php, 其中的index()方法处理首页事件 <br />
 > 为了将控制权由 onRequest 转至对应的控制器, 客户端发送的数据需要指定处理该请求的 controller 及 action, 比如要指定由 User 控制器下的 news Action来处理, 则URL应该是这样的格式: 
 ```
