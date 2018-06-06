@@ -25,7 +25,7 @@ class C_User extends Controller {
         Timer::add(2000, [$this, 'tick'], [__LINE__, Server::$type]);
 
         // After timer
-        Timer::after(5000, [$this, 'after'], __METHOD__);
+        Timer::after(5000, [$this, 'after']);
     }
 
     public function tick(int $timerID, $args){

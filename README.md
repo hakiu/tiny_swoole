@@ -131,3 +131,30 @@
 > Pool::getInstance('redis')->get($key) <br />
 > Pool::getInstance('redis')->del($key) <br />
 > Pool::getInstance('redis')->set($key, $val) <br />
+
+#### 定时器 Timer
+> 控制器中想每2秒执行当前的 tick 方法, 并且传递 xyx 作为参数, 则这样做
+```
+	Timer::add(2000, [$this, 'tick'], 'xyz');
+```
+tick 方法则这样接收
+```
+	public function tick(int $timerID, $args){
+        $this->response('Time in tick '.date("Y-m-d H:i:s\n"));
+        $this->response('Args in tick '.JSON($args));
+
+        # Clear timer
+        Timer::clear($timerID);
+    }
+```
+
+> 控制器中想5秒后执行当前的 after 方法, 则这样做。 注: 不接收任何参数
+```
+    Timer::after(5000, [$this, 'after']);
+```
+after 方法
+```
+	public function after(){
+        $this->response('Execute '.__METHOD__.' in after timer');
+    }
+```
